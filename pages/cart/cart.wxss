@@ -1,1 +1,3 @@
-/* pages/cart/cart.wxss */
+view {
+  color: aliceblue;
+}
