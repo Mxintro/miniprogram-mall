@@ -4,3 +4,8 @@
 .index_swiper swiper image {
   width: 100%;
 }
+
+.index_tab_control {
+  position: sticky;
+  top: 0;
+}

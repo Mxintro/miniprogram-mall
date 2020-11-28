@@ -1,0 +1,15 @@
+.feature_view {
+  display: flex;
+  margin-top: 20rpx;
+  padding-bottom: 60rpx;
+  border-bottom: 20rpx solid #eee;
+}
+.feature_view .feature_item {
+  flex: 1;
+  text-align: center;
+}
+.feature_view .feature_item image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+}

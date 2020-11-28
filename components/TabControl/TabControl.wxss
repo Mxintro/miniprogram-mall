@@ -1,0 +1,20 @@
+.tab-control {
+  display: flex;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #fff;
+  z-index: 9;
+  font-size: 30rpx;
+}
+.tab-control .tab-control-item {
+  flex: 1;
+}
+.tab-control .tab-control-item text {
+  padding: 10rpx;
+}
+.active {
+  color: var(--color-high-text);
+}
+.active text {
+  border-bottom: 4rpx solid var(--color-high-text);
+}

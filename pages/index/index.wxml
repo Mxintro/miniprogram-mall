@@ -11,6 +11,15 @@
       </navigator>  
     </swiper-item> 
   </swiper>
+  <feature-view featuresInfo="{{recommendsInfo}}"></feature-view>
+  <tab-control
+    class="index_tab_control"
+    titles="{{tabTitle}}"
+    currentIndex="{{tabIndex}}"
+    bind:titleTap="tabChange"></tab-control>
+  <gird-view>
+    
+  </gird-view>
 </view>
 
 

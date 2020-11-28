@@ -1,0 +1,9 @@
+.gird_view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gird_view :nth-child(n) {
+  width: 300rpx;
+  margin-top: 20rpx;
+}

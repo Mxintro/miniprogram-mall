@@ -1,0 +1,12 @@
+<!--components/FeatureView/FeatureView.wxml-->
+<view class="feature_view">
+  <view
+    class="feature_item"
+    wx:for="{{featuresInfo}}"
+    wx:key="index">
+    <navigator url="{{item.link}}">
+      <image src="{{item.image}}" mode="widthFix"/>
+       <view>{{item.title}}</view>     
+    </navigator>  
+  </view>
+</view>
