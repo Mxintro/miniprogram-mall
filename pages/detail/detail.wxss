@@ -1,1 +1,189 @@
-/* pages/detail/detail.wxss */
+.detail_view swiper {
+  height: 570rpx;
+}
+.detail_view swiper image {
+  width: 100%;
+}
+.detail_view .base-info {
+  margin-top: 30rpx;
+  padding: 0 16rpx;
+  color: #999;
+  border-bottom: 10rpx solid #f2f5f8;
+}
+.detail_view .base-info .info-title {
+  font-size: 32rpx;
+  color: #222;
+}
+.detail_view .base-info .price {
+  margin-top: 20rpx;
+}
+.detail_view .base-info .price .new-price {
+  font-size: 48rpx;
+  color: var(--color-high-text);
+}
+.detail_view .base-info .price .old-price {
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  text-decoration: line-through;
+}
+.detail_view .base-info .price .discount {
+  font-size: 24rpx;
+  padding: 4rpx 10rpx;
+  color: #fff;
+  background-color: var(--color-high-text);
+  border-radius: 16rpx;
+  margin-left: 10rpx;
+  position: relative;
+  top: -16rpx;
+}
+.detail_view .base-info .columns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 60rpx;
+  border-bottom: 2rpx solid rgba(100, 100, 100, 0.1);
+}
+.detail_view .base-info .services {
+  display: flex;
+  justify-content: space-around;
+  line-height: 120rpx;
+}
+.detail_view .base-info .services .info-service-item {
+  font-size: 26rpx;
+  flex: 1;
+  font-size: 24rpx;
+  height: 120rpx;
+  color: #333;
+  overflow: hidden;
+}
+.detail_view .base-info .services .info-service-item image {
+  height: 28rpx;
+  width: 28rpx;
+  vertical-align: -4rpx;
+}
+.detail_view .shop-info {
+  padding: 50rpx 16rpx;
+  border-bottom: 10rpx solid #f2f5f8;
+}
+.detail_view .shop-info .shop-top {
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.detail_view .shop-info .shop-top image {
+  height: 90rpx;
+  width: 90rpx;
+  border-radius: 50%;
+  border: 2rpx solid rgba(0, 0, 0, 0.1);
+  vertical-align: -29rpx;
+}
+.detail_view .shop-info .shop-top text {
+  display: inline-block;
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+.detail_view .shop-info .shop-middle {
+  display: flex;
+  margin-top: 30rpx;
+  align-items: center;
+}
+.detail_view .shop-info .shop-middle .middle-left {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  color: #333;
+  border-right: 2rpx solid rgba(0, 0, 0, 0.1);
+}
+.detail_view .shop-info .shop-middle .middle-left .info-sell-goods {
+  flex: 1;
+}
+.detail_view .shop-info .shop-middle .middle-left .info-sell-goods .count {
+  font-size: 36rpx;
+}
+.detail_view .shop-info .shop-middle .middle-left .info-sell-goods .text {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+.detail_view .shop-info .shop-middle .middle-right {
+  flex: 1;
+  color: #333;
+  font-size: 26rpx;
+  margin-left: 40rpx;
+}
+.detail_view .shop-info .shop-middle .middle-right .shop_score {
+  margin-top: 20rpx;
+  display: flex;
+  text-align: center;
+  font-size: 26rpx;
+}
+.detail_view .shop-info .shop-middle .middle-right .shop_score :nth-child(n) {
+  flex: 1;
+}
+.detail_view .shop-info .shop-middle .middle-right .shop_score .score {
+  color: #5ea732;
+}
+.detail_view .shop-info .shop-middle .middle-right .shop_score .high-score {
+  color: #f13e3a;
+}
+.detail_view .shop-info .shop-middle .middle-right .shop_score .better {
+  background-color: #5ea732;
+  color: #fff;
+  padding: 8rpx;
+  text-align: center;
+}
+.detail_view .shop-info .shop-middle .middle-right .shop_score .isbetter {
+  background-color: #f13e3a;
+}
+.detail_view .shop-info .shop-bottom {
+  margin: 20rpx;
+  text-align: center;
+}
+.detail_view .shop-info .shop-bottom .enter-shop {
+  font-size: 28rpx;
+  display: inline-block;
+  background-color: #f2f5f8;
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 20rpx;
+}
+.detail_view .goods-info {
+  padding: 40rpx 0;
+  border-bottom: 10rpx solid #f2f5f8;
+}
+.detail_view .goods-info .info-desc {
+  padding: 0 30rpx;
+}
+.detail_view .goods-info .info-desc .start,
+.detail_view .goods-info .info-desc .end {
+  height: 2rpx;
+  width: 180rpx;
+  background-color: #a3a3a5;
+  position: relative;
+}
+.detail_view .goods-info .info-desc .start {
+  float: left;
+}
+.detail_view .goods-info .info-desc .end {
+  float: right;
+}
+.detail_view .goods-info .info-desc .start::before,
+.detail_view .goods-info .info-desc .info-desc .end::after {
+  content: '';
+  position: absolute;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #333;
+  bottom: 0;
+}
+.detail_view .goods-info .info-desc .end::after {
+  right: 0;
+}
+.detail_view .goods-info .info-desc .desc {
+  padding: 30rpx 0;
+  font-size: 28rpx;
+}
+.detail_view .goods-info image {
+  width: 100%;
+}

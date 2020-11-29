@@ -1,2 +1,86 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="detail_view">
+  <!-- 轮播图 -->
+  <swiper 
+    autoplay="true"
+    interval="2000"
+    circular="true"
+    current="0" >
+    <swiper-item 
+      wx:for="{{topImages}}"
+      wx:key="index">
+      <image src="{{item}}" mode="widthFix"/>       
+    </swiper-item> 
+  </swiper>
+ 
+  <!-- 基本描述 -->
+  <view class="base-info">
+    <view class="info-title">{{goodInfo.title}}</view>
+    <view class="price">
+      <text class="new-price">{{goodInfo.newPrice}}</text>
+      <text class="old-price">{{goodInfo.oldPrice}}</text>
+      <text class="discount">{{goodInfo.discount}}</text>
+    </view>
+    <view class="columns">
+      <text>{{goodInfo.columns[0]}}</text>
+      <text>{{goodInfo.columns[1]}}</text>
+      <text>{{goodInfo.services[goodInfo.services.length-1].name}}</text>
+    </view>
+    <view class="services">
+      <view class="info-service-item" wx:for="{{goodInfo.services.length-1}}" wx:key="*this">
+        <image src="{{goodInfo.services[index].icon}}"></image>
+        <text>{{goodInfo.services[index].name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 店铺信息 -->
+  <view class="shop-info">
+    <view class="shop-top">
+      <image src="{{shopInfo.logo}}"/>    
+      <text>{{shopInfo.name}}</text>
+    </view>
+    <view class="shop-middle">
+      <view class="middle-left">
+        <view class="info-sell-goods">
+          <view class="count">
+            {{shopInfo.sells}}
+          </view>
+          <view class="text">总销量</view>
+        </view>
+        <view class="info-sell-goods">
+          <view class="count">
+            {{shopInfo.goodsCount}}
+          </view>
+          <view class="text">全部宝贝</view>
+        </view>
+      </view>
+      <view class="middle-right">
+        <view class="shop_score" wx:for="{{shopInfo.score}}" wx:key="*this">
+          <text class="desc">{{item.name}}</text>     
+          <text class="score {{item.isBetter ?  'high-score':''}}">{{item.score}}</text>
+          <view>
+            <text class="better {{item.isBetter ?  'isbetter':''}}">{{item.isBetter ? '高':'低'}}</text>
+          </view>     
+        </view>
+      </view>
+    </view>
+    <view class="shop-bottom">
+      <view class="enter-shop">进店逛逛</view>
+    </view>
+  </view>
+  <!-- 详情 -->
+  <view class="goods-info">
+    <view class="info-desc">
+      <view class="start"></view>
+      <view class="desc">{{detailInfo.desc}}</view>
+      <view class="end"></view>
+    </view>
+    <view class="info-key">{{detailInfo.detailImage[0].key}}</view>
+    <view class="info-list">
+      <image
+        wx:for="{{detailInfo.detailImage[0].list}}"
+        wx:key="*this"
+        src="{{item}}" mode="widthFix" lazy-load="true"/>    
+    </view>  
+  </view>
+</view>

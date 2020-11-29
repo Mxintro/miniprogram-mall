@@ -1,0 +1,205 @@
+.detail_view{
+  swiper{
+    height: 570rpx;
+    image {
+      width: 100%;
+    }
+  }
+  .base-info {
+    margin-top: 30rpx;
+    padding: 0 16rpx;
+    color: #999;
+    border-bottom: 10rpx solid #f2f5f8;
+
+    .info-title {
+      font-size: 32rpx;
+      color: #222
+    }
+    .price  {
+      margin-top: 20rpx;
+
+      .new-price {
+        font-size: 48rpx;
+        color: var(--color-high-text);
+      }
+      .old-price {
+        font-size: 26rpx;
+        margin-left: 10rpx;
+        text-decoration: line-through;
+      }
+      .discount {
+        font-size: 24rpx;
+        padding: 4rpx 10rpx;
+        color: #fff; 
+        background-color: var(--color-high-text);
+        border-radius: 16rpx;
+        margin-left: 10rpx;
+      
+        position: relative;
+        top: -16rpx;
+      }
+    }
+    .columns {
+      display: flex;
+      justify-content: space-between;
+    
+      margin-top: 30rpx;
+      font-size: 26rpx;
+      color:rgb(153, 153, 153);
+      line-height: 60rpx;
+      border-bottom: 2rpx solid rgba(100,100,100,.1);
+    }
+    .services {
+      display: flex;
+      justify-content: space-around;
+      line-height: 120rpx;
+
+      .info-service-item {
+        font-size: 26rpx;
+        flex: 1;
+        font-size: 24rpx;
+        height: 120rpx;
+        color: #333;
+        overflow: hidden;
+  
+        image{
+          height: 28rpx;
+          width: 28rpx;
+          vertical-align: -4rpx;
+        }
+      }
+    }
+  }
+  .shop-info {
+    padding: 50rpx 16rpx;
+    border-bottom: 10rpx solid #f2f5f8;
+
+    .shop-top {
+      height: 90rpx;
+      line-height: 90rpx;
+
+      image {
+        height: 90rpx;
+        width: 90rpx;
+        border-radius: 50%;
+        border: 2rpx solid rgba(0,0,0,.1);
+        vertical-align: -29rpx;
+      }
+      text {
+        display: inline-block;
+        margin-left: 20rpx;
+        font-size: 32rpx;
+      }
+    }
+    .shop-middle {
+      display: flex;
+      margin-top: 30rpx;
+      align-items: center;
+      
+      .middle-left {
+        flex: 1;
+        display: flex;
+        text-align: center;
+        color: #333;
+        border-right: 2rpx solid rgba(0,0,0,.1);
+
+        .info-sell-goods{
+          flex:1;
+
+          .count {
+            font-size: 36rpx;
+          }
+          .text{
+            margin-top: 20rpx;
+            font-size: 24rpx;
+          }
+        }
+      }
+      .middle-right {
+        flex: 1;
+        color: #333;
+        font-size: 26rpx;
+        margin-left: 40rpx;
+        
+        .shop_score {
+          margin-top: 20rpx;
+          display: flex;
+          text-align: center;
+          font-size: 26rpx;
+
+          :nth-child(n) {
+            flex: 1;
+          }
+          .score {
+            color: #5ea732;
+          }
+          .high-score {
+            color: #f13e3a;
+          }        
+          .better {
+            background-color: #5ea732;
+            color: #fff;
+            padding: 8rpx;
+            text-align: center;
+          }
+          .isbetter{
+            background-color: #f13e3a;
+          }
+        }
+      }
+    }
+    .shop-bottom {
+      margin: 20rpx;
+      text-align: center;
+
+      .enter-shop {
+        font-size: 28rpx;
+        display: inline-block;
+        background-color: #f2f5f8;
+        width: 300rpx;
+        height: 60rpx;
+        line-height: 60rpx;
+        border-radius: 20rpx;
+      }
+    }
+  }
+  .goods-info {
+    padding: 40rpx 0;
+    border-bottom: 10rpx solid #f2f5f8;
+
+    .info-desc {
+      padding: 0 30rpx;
+
+      .start, .end {
+        height: 2rpx;
+        width: 180rpx;
+        background-color: #a3a3a5; 
+        position: relative;
+      }
+      .start{
+        float: left;
+      }
+      .end{
+        float: right;
+      }
+      .start::before, .info-desc .end::after {
+        content: '';
+        position: absolute;
+        width: 10rpx;
+        height: 10rpx;
+        background-color: #333;
+        bottom: 0;
+      }
+      .end::after {
+        right: 0;
+      }
+      .desc {
+        padding: 30rpx 0;
+        font-size: 28rpx;
+      }    
+    }
+    image {
+      width: 100%;
+    }
+  }
+}

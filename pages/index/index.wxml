@@ -1,7 +1,8 @@
 <view class="index_view">
   <swiper 
-    autoplay="ture"
+    autoplay="true"
     interval="2000"
+    circular="true"
     current="0" >
     <swiper-item 
       wx:for="{{swiperImgs}}"
