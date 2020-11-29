@@ -1,4 +1,4 @@
-.index_swiper{
+.index_view{
   swiper{
     height: 340rpx;
     image {
@@ -6,3 +6,9 @@
     }
   }
 }
+
+// 阻止tabbar点击切换商品时，页面下滑，同时需配置组件externalClasses: ['my-class']，并在组件中调用
+.no_scroll {
+  height: 100vh;
+  overflow: hidden;
+} 

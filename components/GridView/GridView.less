@@ -3,8 +3,51 @@
   flex-wrap: wrap;
   justify-content:center;
   
-  :nth-child(n) {
-    width: 300rpx;
+  :nth-child(2n) {
+    margin-right: 20rpx;
+  }
+  .goods_item {
+    width: 345rpx;
     margin-top: 20rpx;
+    margin-left: 20rpx;
+    padding-bottom: 80rpx;
+    position: relative;
+
+    image {
+      width: 100%;
+    }
+    .goods_info {
+      font-size: 24rpx;
+      position: absolute;
+      bottom: 10rpx;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      text-align: center;
+
+      view {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-bottom: 6rpx;
+      }
+      .price {
+        color: var(--color-high-text);
+        margin-right: 40rpx;
+      }
+      .collect {
+        position: relative;
+      }
+      .collect::before {
+        content: '';
+        position: absolute;
+        left: -30rpx;
+        top: 0;
+        width: 28rpx;
+        height: 28rpx;
+        // background: url("/icons/likes.png");
+        
+      }
+    }
   }
 }

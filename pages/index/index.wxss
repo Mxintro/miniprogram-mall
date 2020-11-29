@@ -1,11 +1,10 @@
-.index_swiper swiper {
+.index_view swiper {
   height: 340rpx;
 }
-.index_swiper swiper image {
+.index_view swiper image {
   width: 100%;
 }
-
-.index_tab_control {
-  position: sticky;
-  top: 0;
+.no_scroll {
+  height: 100vh;
+  overflow: hidden;
 }

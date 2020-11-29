@@ -1,9 +1,13 @@
 .tab-control {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
   display: flex;
   line-height: 80rpx;
   text-align: center;
   background-color: #fff;
-  z-index: 9;
   font-size: 30rpx;
 }
 .tab-control .tab-control-item {

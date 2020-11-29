@@ -1,2 +1,15 @@
 <!--components/GridView/GridView.wxml-->
-<text>components/GridView/GridView.wxml</text>
+<view class="gird_view my-class" wx:if="{{Object.keys().length()}}>0">
+  <view
+    class="goods_item"
+    wx:for="{{goodsList}}"
+    wx:key="iid">
+    <image lazy-load="true" mode="widthFix" src="{{item.img || item.image || item.show.img}}"></image>
+    <view class="goods_info">
+      <view>{{item.title}}</view>
+      <text class="price">¥{{item.price}}</text>
+      <text class="collect">{{item.cfav}}</text>
+    </view>
+  </view>
+</view>
+

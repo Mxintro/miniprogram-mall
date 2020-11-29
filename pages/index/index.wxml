@@ -1,4 +1,4 @@
-<view class="index_swiper">
+<view class="index_view">
   <swiper 
     autoplay="ture"
     interval="2000"
@@ -11,15 +11,12 @@
       </navigator>  
     </swiper-item> 
   </swiper>
-  <feature-view featuresInfo="{{recommendsInfo}}"></feature-view>
+  <feature-view featuresInfo="{{recommendsInfo}}" />
   <tab-control
-    class="index_tab_control"
     titles="{{tabTitle}}"
     currentIndex="{{tabIndex}}"
-    bind:titleTap="tabChange"></tab-control>
-  <gird-view>
-    
-  </gird-view>
+    bind:titleTap="tabChange" />
+  <gird-view my-class="{{noScroll ? 'no_scroll' : ''}}" goodsList="{{goodsList}}" />
 </view>
 
 

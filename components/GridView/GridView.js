@@ -3,8 +3,15 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {
+  externalClasses: ['my-class'],
 
+  properties: {
+    goodsList: {
+      type: Array,
+      value: () => {
+        return []
+      }
+    }
   },
 
   /**

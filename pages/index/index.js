@@ -11,13 +11,31 @@ Page({
     recommendsInfo: [],
     tabTitle: ['流行', '精选', '新款'],
     tabIndex: 0,
-    goodslist: [],
-    typeList: ['pop', 'sell', 'new'],
-    currentPage: 1
+    goodsList: [],
+    noScroll: false
   },
+  
+  queryInfo: {
+    typeList: ['pop', 'sell', 'new'],
+    currentPage: 1,
+  },
+
   onLoad: function () {
     this.getHomeMultidata()
-    this.getHomeData(this.data.typeList[this.data.tabIndex])
+    this.getHomeData()
+    console.log('==================================')
+  },
+  onPullDownRefresh(){
+    this.setData({
+      goodsList: [],
+      tabIndex: 0
+    })
+    this.queryInfo.currentPage = 1
+    this.getHomeData()
+  },
+  onReachBottom() {
+    this.queryInfo.currentPage++
+    this.getHomeData()
   },
   async getHomeMultidata(type) {
     const res = await request({
@@ -31,26 +49,33 @@ Page({
       recommendsInfo: res.data['recommend'].list
     })
   },
-  async getHomeData(type) {
-    console.log("===========================");
+  async getHomeData() {
     const res = await request({
       url: '/home/data',
       method: 'GET',
       data: {
-        type: type,
-        page: this.data.currentPage
+        type: this.queryInfo.typeList[this.data.tabIndex],
+        page: this.queryInfo.currentPage
       }
     }).catch(err => console.log(err))
-    const list = this.data.goodslist
-    list.push(...res.data.list)
     this.setData({
-      goodslist: list
+      goodsList: [...this.data.goodsList, ...res.data.list]
     })
+    //防止页面下落
+    setTimeout(() => {
+      this.setData({
+        noScroll: false,
+      })
+    },20)
+    wx.stopPullDownRefresh()
   },
   tabChange(e) {
     this.setData({
+      noScroll: true,
+      goodsList: [],
       tabIndex: e.detail.id
     })
-    this.getHomeData(this.typeList[this.data.tabIndex])
+    this.queryInfo.currentPage = 1
+    this.getHomeData()
   }
 })
