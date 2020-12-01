@@ -33,6 +33,7 @@ Page({
   tranPx: 0,
 
   onLoad: function (options) {
+    this.goodIid = options.iid
     this._getDetailData(options.iid)
     this._getRecommendData()
   },
@@ -84,7 +85,8 @@ Page({
     sku.nowprice = Number(sku.nowprice/100).toFixed(2)
     console.log(sku.nowprice);
     this.setData({
-      currentSku: sku
+      currentSku: sku,
+      goodsCount: 0
     })
   },
   addCart() {
@@ -114,7 +116,6 @@ Page({
   selectColor(e) {
     this.setData({
       colorIndex: e.currentTarget.dataset['index'],
-      goodsCount: 0,
       countOper: ''
     })
     this.getCurrentSku()
@@ -122,7 +123,6 @@ Page({
   selectSize(e) {
     this.setData({
       sizeIndex: e.currentTarget.dataset['index'],
-      goodsCount: 0,
       countOper: ''
     })
     this.getCurrentSku()
@@ -149,5 +149,45 @@ Page({
     }
   },
   submitGoods(){
+    this.cleanDialog()
+    if (this.data.goodsCount > 0){
+      const cartItem = {...this.data.currentSku}
+      cartItem.title = this.data.goodInfo.title
+      cartItem.count = this.data.goodsCount
+      cartItem.goodIid = this.goodIid
+      cartItem.checked = true
+
+      let cart = []
+      wx.getStorage({
+        key: 'cart',
+        success: (result) => {
+          console.log(result);
+          cart = result.data
+          const index = cart.findIndex(item => item.stockId === cartItem.stockId)
+          if (index === -1) {
+            cart.push(cartItem)
+          }else {
+            cart[index].count += cartItem.count 
+          }
+        },
+        fail: () => {},
+        complete: () => {
+          wx.setStorage({
+            key: 'cart',
+            data: cart,
+            success: (result) => {
+              wx.showToast({
+                title: '商品加入成功',
+                icon: 'success',
+                mask: true,
+              })
+            },
+            fail: (err) => { console.error(err)},
+            complete: () => {}
+          })
+        }
+      })
+      console.log(cart);   
+    }
   }
 })
