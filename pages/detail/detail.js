@@ -156,12 +156,12 @@ Page({
       cartItem.count = this.data.goodsCount
       cartItem.goodIid = this.goodIid
       cartItem.checked = true
+      cartItem.nowprice = parseFloat(cartItem.nowprice)
 
       let cart = []
       wx.getStorage({
         key: 'cart',
         success: (result) => {
-          console.log(result);
           cart = result.data
           const index = cart.findIndex(item => item.stockId === cartItem.stockId)
           if (index === -1) {
@@ -170,7 +170,9 @@ Page({
             cart[index].count += cartItem.count 
           }
         },
-        fail: () => {},
+        fail: () => {
+          cart.push(cartItem)
+        },
         complete: () => {
           wx.setStorage({
             key: 'cart',
@@ -187,7 +189,6 @@ Page({
           })
         }
       })
-      console.log(cart);   
     }
   }
 })

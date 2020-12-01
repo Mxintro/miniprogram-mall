@@ -5,62 +5,100 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    cartList: [],
+    selectAll: false,
+    totalCost: 0,
+    orderNum: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad() {
+   this.getCartList()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  
+  onHide() {
+    this.setCartList()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onShow() {
+    this.getCartList()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onUnload() {
+    console.log('============');
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  onPullDownRefresh() {
+    this.getCartList()
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  getCartList() {
+    wx.getStorage({
+      key: 'cart',
+      success: (result) => {
+        this.setData({
+          cartList: result.data
+        })
+      },
+      fail: () => {},
+      complete: () => {
+        this.allChecked()
+        this.getTotalCost()
+      }
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  setCartList() {
+    wx.setStorage({
+      key: 'cart',
+      data: this.data.cartList,
+      success: (result) => {
+      },
+      fail: () => {},
+      complete: () => {}
+    });  
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  goDetail(e) {
+    console.log(e);
+    wx.redirectTo({
+      url: `/pages/detail/detail?iid=${e.currentTarget.dataset['iid']}`,
+    });
+  },
+  checkedHandle(e) {
+    const index = e.currentTarget.dataset['index']
+    const checked = !this.data.cartList[index].checked
+    const checkedSet = `cartList[${index}].checked`
+    this.setData({
+      [checkedSet]: checked
+    })
+    if (!checked){
+      this.setData({
+        selectAll: false
+      })
+    }else {
+      this.allChecked()
+    }
+    this.getTotalCost()
+  },
+  slectAllHandle() {
+    const slected = !this.data.selectAll
+    this.data.cartList.forEach(el => el.checked = slected)
+    this.setData({
+      selectAll: slected,
+      cartList: this.data.cartList
+    })
+  },
+  allChecked() {
+    const allChecked = this.data.cartList.find(le => le.checked===false) === undefined
+    this.setData({
+      selectAll: allChecked
+    })
+  },
+  getTotalCost() {
+    let total = 0
+    let orderNum = 0
+    this.data.cartList.forEach(item => {
+      if (item.checked) {
+        total += item.nowprice * item.count
+        orderNum ++
+      }    
+    })
+    this.setData({
+      totalCost: total,
+      orderNum: orderNum
+    })
   }
 })

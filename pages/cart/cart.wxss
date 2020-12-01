@@ -1,3 +1,104 @@
-view {
-  color: aliceblue;
+.shop-cart .cart-list .cart-list-item {
+  width: 100%;
+  height: 240rpx;
+  padding: 20rpx 10rpx;
+  display: flex;
+  border-bottom: 2rpx solid #ccc;
+}
+.shop-cart .cart-list .cart-list-item .good-select {
+  flex-shrink: 0;
+  height: 100%;
+  width: 36rpx;
+  display: flex;
+  align-items: center;
+}
+.shop-cart .cart-list .cart-list-item .good-img {
+  flex-shrink: 0;
+  width: 160rpx;
+  height: 200rpx;
+  margin: 0 10rpx;
+}
+.shop-cart .cart-list .cart-list-item .good-img image {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+}
+.shop-cart .cart-list .cart-list-item .good-info {
+  padding: 0 20rpx;
+  position: relative;
+  overflow: hidden;
+  font-size: 34rpx;
+}
+.shop-cart .cart-list .cart-list-item .good-info .cart-title,
+.shop-cart .cart-list .cart-list-item .good-info .cart-desc {
+  color: #333;
+  padding-bottom: 20rpx;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shop-cart .cart-list .cart-list-item .good-info .cart-desc {
+  font-size: 24rpx;
+  color: #666666;
+}
+.shop-cart .cart-list .cart-list-item .good-info .cart-desc text {
+  color: #ff8198;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+.shop-cart .cart-list .cart-list-item .good-info .price-count {
+  display: flex;
+  position: absolute;
+  bottom: 10rpx;
+  left: 20rpx;
+  right: 20rpx;
+  justify-content: space-between;
+}
+.shop-cart .cart-list .cart-list-item .good-info .price-count .now-price {
+  color: #ff4500;
+}
+.shop-cart .cart-list .cart-list-item .icon-dagou-copy {
+  color: #d4d4d4;
+  font-size: 36rpx;
+}
+.shop-cart .cart-bottom {
+  position: fixed;
+  height: 88rpx;
+  line-height: 88rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #eeeeee;
+  box-shadow: 0 -4rpx 6rpx rgba(0, 0, 0, 0.2);
+  display: flex;
+  font-size: 28rpx;
+}
+.shop-cart .select-all {
+  flex-shrink: 0;
+  width: 116rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  line-height: 0rpx;
+}
+.shop-cart .select-all .icon-dagou-copy {
+  color: #b5b3b3;
+  font-size: 36rpx;
+}
+.shop-cart .tatol-cost {
+  margin-left: 30rpx;
+  flex-grow: 1;
+  font-size: 32rpx;
+}
+.shop-cart .order-settle {
+  padding: 0 20rpx;
+  flex-shrink: 0;
+  text-align: center;
+  width: 200rpx;
+  background: #ff4500;
+  color: #ffffff;
+}
+.shop-cart .select-active {
+  color: var(--color-high-text) !important;
 }
