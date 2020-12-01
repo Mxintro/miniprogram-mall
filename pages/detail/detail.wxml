@@ -83,4 +83,98 @@
         src="{{item}}" mode="widthFix" lazy-load="true"/>    
     </view>  
   </view>
+  <!-- 尺码表 -->
+  <view class="param_table">
+    <block wx:for="{{paramInfo.sizes[0]}}" wx:key="*this">
+      <view class="param_tr">
+        <view wx:for="{{item}}" wx:key="*this" wx:for-item="tbItem">
+          {{tbItem}}
+        </view>
+      </view>
+    </block>
+    <block wx:for="{{paramInfo.infos}}" wx:key="*this">
+      <view class="param_tr">
+        <view class="info_key">{{item.key}}</view>
+        <view>{{item.value}}</view>
+      </view>
+    </block>   
+  </view>
+  <!-- 评价 -->
+  <view class="comment_view" >
+    <view class="comment-top">
+      <text class="title">用户评价({{commentInfo.cRate || 0}})</text>
+      <text class="more">更多<i class="arrow-right"></i></text>
+    </view>
+    <comment-item comment="{{commentInfo.list[0]}}" />
+  </view>
+  <!-- 推荐 -->
+  <view class="recommend_view">
+    <view class="info-header">热门推荐</view>
+    <gird-view goodsList="{{recommendList}}" />
+  </view>
+  <!-- 操作栏 -->
+  <view class="bottom-bar">
+    <view class="bar-item">
+        <view class="iconfont icon-kefu"></view>
+        <text class="text">客服</text>
+    </view>
+    <view class="bar-item">
+        <view class="iconfont icon-dianpu"></view>
+        <text class="text">店铺</text>
+    </view> 
+    <view class="bar-item">
+        <view class="iconfont icon-shoucang"></view>
+        <text class="text">收藏</text>
+    </view>
+    <view class="bar-item shopping-cart" bindtap="addCart">加入购物车</view> 
+    <view class="bar-item purchase">立刻购买</view>     
+  </view>
+  <!-- 购物弹框 -->
+  <view class="cover" wx:if="{{skuVisible}}" catchtap="cleanDialog"></view>
+  <view class="sku_view" animation="{{animationSku}}">
+    <view class="sku-top">
+
+      <view class="img-container">
+        <image src="{{currentSku.img}}" mode="widthFix"/>
+      </view>
+      <view class="sku-info">
+        <view class="price">{{currentSku.nowprice}}</view>
+        <view>库存{{currentSku.stock}}件</view>
+        <view>请选择：颜色  尺码</view>
+      </view>
+      <image src="../../icons/cancel.png" bindtap="cleanDialog" mode="widthFix"/>
+      
+    </view>
+    <view class="sku-middle">
+      <view class="color-info">
+        <view>颜色/样式：</view>
+        <view class="color-list">
+          <view class="color-size-btn {{colorIndex === index ? 'active' : ''}}"
+            wx:for="{{skuInfos.color}}"
+            wx:key="styleId"
+            data-index="{{index}}"
+            bindtap="selectColor"> {{item.name}}</view>
+        </view>
+      </view>
+      <view class="sizes-info">
+        <view>尺码：</view>
+        <view class="sizes-list">
+          <view class="color-size-btn {{sizeIndex === index ? 'active' : ''}}"
+            wx:for="{{skuInfos.sizes}}"
+            data-index="{{index}}"
+            wx:key="sizeId"
+            bindtap="selectSize">{{item.name}}</view>
+        </view>
+      </view>
+      <view class="count-num">
+        <view class="sku-middli-font">数量</view>
+        <view class="num-button">
+          <view class="num-left {{countOper==='de' ? 'num_active' : ''}}" bindtap="numDecrease">-</view>
+          <view class="num-center"><input model:value="{{goodsCount}}"/></view>
+          <view class="num-right {{countOper==='in' ? 'num_active' : ''}}" bindtap="numIncrease">+</view>
+        </view>
+      </view>
+    </view>
+    <view class="sku-bottom">确定</view>
+  </view>
 </view>

@@ -1,0 +1,12 @@
+<!--components/CommentItem/CommentItem.wxml-->
+<view class="comment-item" wx:if="{{Object.keys(comment).length !==0}}">
+  <view class="user">
+    <image src="{{comment.user.avatar}}" />
+    <text>{{comment.user.uname}}</text>
+  </view>
+  <view class="content">{{comment.content}}</view>
+  <view class="detail">
+    <text class="date">{{createdTime}}</text>
+    <text>{{comment.style}}</text>
+  </view> 
+</view>

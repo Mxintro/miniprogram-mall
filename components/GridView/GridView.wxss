@@ -3,9 +3,6 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-.gird_view :nth-child(2n) {
-  margin-right: 20rpx;
-}
 .gird_view .goods_item {
   width: 345rpx;
   margin-top: 20rpx;
@@ -25,24 +22,20 @@
   overflow: hidden;
   text-align: center;
 }
-.gird_view .goods_item .goods_info view {
+.gird_view .goods_item .goods_info .title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 6rpx;
 }
-.gird_view .goods_item .goods_info .price {
+.gird_view .goods_item .goods_info .bottom_info {
+  display: flex;
+  justify-content: center;
+}
+.gird_view .goods_item .goods_info .bottom_info .iconfont {
+  font-size: 26rpx;
+}
+.gird_view .goods_item .goods_info .bottom_info .price {
   color: var(--color-high-text);
-  margin-right: 40rpx;
-}
-.gird_view .goods_item .goods_info .collect {
-  position: relative;
-}
-.gird_view .goods_item .goods_info .collect::before {
-  content: '';
-  position: absolute;
-  left: -30rpx;
-  top: 0;
-  width: 28rpx;
-  height: 28rpx;
+  margin-right: 30rpx;
 }

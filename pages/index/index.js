@@ -23,7 +23,6 @@ Page({
   onLoad: function () {
     this.getHomeMultidata()
     this.getHomeData()
-    console.log('==================================')
   },
   onPullDownRefresh(){
     this.setData({
@@ -43,7 +42,6 @@ Page({
       method: 'GET',
       data:''
     }).catch(err => console.log(err))
-    console.log(res);
     this.setData({
       swiperImgs: res.data['banner'].list,
       recommendsInfo: res.data['recommend'].list

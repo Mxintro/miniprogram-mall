@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "comment-item": "/components/CommentItem/CommentItem",
+    "gird-view":"/components/GridView/GridView"
+  }
 }

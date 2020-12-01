@@ -1,3 +1,5 @@
+@import './styles/iconfont.wxss';
+
 page,view,text,swiper,swiper-item,image,navigator{
   padding: 0;
   margin: 0;
@@ -10,4 +12,5 @@ page{
   --color-background: #fff;
   font-size: 28rpx;
   --line-height: 1.5;
+  color:#666;
 }

@@ -10,9 +10,6 @@ Component({
       value: 0
     }
   },
-  ready() {
-    console.log(this.properties.currentIndex);
-  },
   methods: {
     itemTap(e) {
       this.triggerEvent("titleTap", {id:parseInt(e.currentTarget.id)})

@@ -1,5 +1,5 @@
 <!--components/GridView/GridView.wxml-->
-<view class="gird_view my-class" wx:if="{{Object.keys().length()}}>0">
+<view class="gird_view my-class" wx:if="{{Object.keys(goodsList).length()}}>0">
   <view
     class="goods_item"
     wx:for="{{goodsList}}"
@@ -7,9 +7,11 @@
     <navigator target="" url="/pages/detail/detail?iid={{item.iid}}" hover-class="none" open-type="navigate">
       <image lazy-load="true" mode="widthFix" src="{{item.img || item.image || item.show.img}}"></image>
         <view class="goods_info">
-          <view>{{item.title}}</view>
-          <text class="price">¥{{item.price}}</text>
-          <text class="collect">{{item.cfav}}</text>
+          <view class="title">{{item.title}}</view>
+          <view class="bottom_info">
+            <text class="price">¥{{item.price}}</text>
+            <text class="iconfont icon-shoucang">{{item.cfav}}</text>    
+          </view>
         </view>
     </navigator> 
   </view>

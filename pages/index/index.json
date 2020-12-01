@@ -2,6 +2,6 @@
   "usingComponents": {
     "feature-view":"/components/FeatureView/FeatureView",
     "tab-control":"/components/TabControl/TabControl",
-    "gird-view": "/components/GridView/GridView"
+    "gird-view":"/components/GridView/GridView"
   }
 }

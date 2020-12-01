@@ -1,0 +1,27 @@
+/* components/CommentItem/CommentItem.wxss */
+.user {
+  padding: 20rpx 0 10rpx;
+}
+.user image {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  vertical-align: -24rpx;
+}
+.user span {
+  margin-left: 30rpx;
+}
+.content {
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #777;
+  line-height: 1.5;
+}
+.detail {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+.detail .date {
+  margin-right: 16rpx;
+}
