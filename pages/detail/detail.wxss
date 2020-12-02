@@ -332,7 +332,7 @@
   width: 1.2rem;
 }
 .detail_view .sku_view .sku-middle {
-  margin: 0 20rpx;
+  margin: 20rpx 20rpx 0;
   height: 15rem;
   display: flex;
   flex-direction: column;
@@ -340,7 +340,7 @@
   justify-content: space-between;
 }
 .detail_view .sku_view .sku-middle .color-info {
-  flex: 1.5;
+  flex: 1;
 }
 .detail_view .sku_view .sku-middle .color-info .color-list {
   display: flex;

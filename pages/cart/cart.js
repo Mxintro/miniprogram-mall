@@ -13,17 +13,13 @@ Page({
   onLoad() {
    this.getCartList()
   },
-  
+  onPullDownRefresh() {
+    wx.stopPullDownRefresh()
+  },
   onHide() {
     this.setCartList()
   },
   onShow() {
-    this.getCartList()
-  },
-  onUnload() {
-    console.log('============');
-  },
-  onPullDownRefresh() {
     this.getCartList()
   },
   getCartList() {
@@ -100,5 +96,21 @@ Page({
       totalCost: total,
       orderNum: orderNum
     })
+  },
+  countHandle(e) {
+    const item = e.currentTarget.dataset.item
+    console.log(item);
+    const index = item[1]
+    const count = `cartList[${index}].count`
+    if(item[0] === 'decrease') {
+      this.setData({
+        [count]: this.data.cartList[index].count - 1
+      })
+    }else if(item[0] === 'increase'){
+      this.setData({
+        [count]: this.data.cartList[index].count + 1
+      })
+    }
+    this.getTotalCost()
   }
 })

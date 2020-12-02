@@ -25,7 +25,11 @@
         </view>
         <view class="price-count">
           <view class="now-price">￥{{cartItem.nowprice}}</view>
-          <view>x{{cartItem.count}}</view>
+          <view class="count">
+            <text class=" iconfont icon-jian" data-item="{{['decrease', index]}}" bindtap="countHandle"></text>
+            <view class="num">x{{cartItem.count}}</view>
+            <text class=" iconfont icon-jia1" data-item="{{['increase', index]}}" bindtap="countHandle"></text>
+          </view>
         </view>
       </view>
     </view>

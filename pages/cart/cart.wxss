@@ -58,6 +58,32 @@
 .shop-cart .cart-list .cart-list-item .good-info .price-count .now-price {
   color: #ff4500;
 }
+.shop-cart .cart-list .cart-list-item .good-info .price-count .count {
+  display: flex;
+  align-items: center;
+}
+.shop-cart .cart-list .cart-list-item .good-info .price-count .count .num {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.shop-cart .cart-list .cart-list-item .good-info .price-count .count .icon-jian {
+  border: var(--color-high-text) 3rpx solid;
+  border-radius: 4rpx;
+  padding: 0 6rpx;
+  color: var(--color-high-text);
+}
+.shop-cart .cart-list .cart-list-item .good-info .price-count .count .icon-jia1 {
+  border: var(--color-high-text) 3rpx solid;
+  border-radius: 4rpx;
+  padding: 0 6rpx;
+  background-color: var(--color-high-text);
+  font-weight: 600;
+  color: #ffffff;
+}
+.shop-cart .cart-list .cart-list-item .good-info .price-count .count .op-aticve {
+  color: #ffffff;
+  background-color: var(--color-high-text);
+}
 .shop-cart .cart-list .cart-list-item .icon-dagou-copy {
   color: #d4d4d4;
   font-size: 36rpx;
