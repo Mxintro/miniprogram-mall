@@ -325,7 +325,7 @@
   float: left;
   margin-top: 0.5rem;
 }
-.detail_view .sku_view .sku-top image {
+.detail_view .sku_view .sku-top .icon-x1 {
   float: right;
   margin-top: 1rem;
   margin-right: 1.2rem;

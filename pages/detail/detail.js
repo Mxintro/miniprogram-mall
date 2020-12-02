@@ -157,6 +157,7 @@ Page({
       cartItem.goodIid = this.goodIid
       cartItem.checked = true
       cartItem.nowprice = parseFloat(cartItem.nowprice)
+      cartItem.cost = cartItem.nowprice * cartItem.count
 
       let cart = []
       wx.getStorage({

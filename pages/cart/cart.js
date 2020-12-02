@@ -8,8 +8,10 @@ Page({
     cartList: [],
     selectAll: false,
     totalCost: 0,
-    orderNum: 0
+    orderNum: 0,
   },
+  orderList: [],
+
   onLoad() {
    this.getCartList()
   },
@@ -76,19 +78,28 @@ Page({
       selectAll: slected,
       cartList: this.data.cartList
     })
+    if(!slected) {
+      this.setData({
+        totalCost: 0,
+        orderNum: 0
+      })
+    }else{
+      this.getTotalCost()
+    }
   },
   allChecked() {
     const allChecked = this.data.cartList.find(le => le.checked===false) === undefined
     this.setData({
       selectAll: allChecked
     })
+    this.getTotalCost()
   },
   getTotalCost() {
     let total = 0
     let orderNum = 0
     this.data.cartList.forEach(item => {
       if (item.checked) {
-        total += item.nowprice * item.count
+        total += item.cost
         orderNum ++
       }    
     })
@@ -99,18 +110,50 @@ Page({
   },
   countHandle(e) {
     const item = e.currentTarget.dataset.item
-    console.log(item);
     const index = item[1]
     const count = `cartList[${index}].count`
-    if(item[0] === 'decrease') {
+    const cost = `cartList[${index}].cost`
+    const cart = this.data.cartList[index]
+    if(item[0] === 'decrease' && cart.count > 0) {
+      if(cart.count === 1 ){
+        this.setCartDelete(index)
+      }else {
+        this.setData({
+          [count]: cart.count - 1,
+          [cost]: cart.cost - cart.nowprice
+        })
+      }   
+    }else if(item[0] === 'increase' && cart.count < cart.stock){
       this.setData({
-        [count]: this.data.cartList[index].count - 1
-      })
-    }else if(item[0] === 'increase'){
-      this.setData({
-        [count]: this.data.cartList[index].count + 1
+        [count]: cart.count + 1,
+        [cost]: cart.cost + cart.nowprice
       })
     }
     this.getTotalCost()
+  },
+  deleteCart(e) {
+    console.log(e);
+    const index = e.currentTarget.dataset.index
+    this.setCartDelete(index)
+    this.getTotalCost()
+  },
+  setCartDelete(index) {
+    this.data.cartList.splice(index, 1)
+    this.setData({
+      cartList: this.data.cartList
+    })
+  },
+  ordersSubmit() {
+    if (this.data.orderNum > 0) {
+      let order = {}
+      this.data.cartList.forEach(item => {
+      if(item.checked) {
+        const { title, nowprice, count, cost} = {...item}
+        order = { title, nowprice, count, cost}
+      }
+    })
+    this.orderList.push(order)
+    console.log(this.orderList);
+    }   
   }
 })

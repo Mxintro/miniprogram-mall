@@ -31,6 +31,7 @@
 }
 .shop-cart .cart-list .cart-list-item .good-info .cart-title,
 .shop-cart .cart-list .cart-list-item .good-info .cart-desc {
+  margin-right: 20rpx;
   color: #333;
   padding-bottom: 20rpx;
   position: relative;
@@ -83,6 +84,12 @@
 .shop-cart .cart-list .cart-list-item .good-info .price-count .count .op-aticve {
   color: #ffffff;
   background-color: var(--color-high-text);
+}
+.shop-cart .cart-list .cart-list-item .good-info .icon-x1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.2rem;
 }
 .shop-cart .cart-list .cart-list-item .icon-dagou-copy {
   color: #d4d4d4;
